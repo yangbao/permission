@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <settings>
+        <!--        是否允许在嵌套语句中使用分页（RowBounds）。如果允许使用则设置为 false。-->
+        <setting name="safeRowBoundsEnabled" value="true"/>
+        <setting name="cacheEnabled" value="false" />
+<!--        允许 JDBC 支持自动生成主键，需要数据库驱动支持。如果设置为 true，将强制使用自动生成主键。尽管一些数据库驱动不支持此特性，但仍可正常工作（如 Derby）。-->
+        <setting name="useGeneratedKeys" value="true" />
+    </settings>
+<!--   别名,sql里面使用-->
+    <!--<typeAliases>-->
+        <!---->
+    <!--</typeAliases>-->
+<!--在mybatis sql执行里面做一些监听,拦截-->
+    <!--<plugins>-->
+        <!--<plugin interceptor=""></plugin>-->
+    <!--</plugins>-->
+<!--本地类和sql的值无法映射的时候,可以自定义handler处理. 比如枚举类-->
+    <!--<typeHandlers>-->
+        <!---->
+    <!--</typeHandlers>-->
+
+</configuration>
