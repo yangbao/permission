@@ -18,16 +18,17 @@
      比如请求一个URL，我要知道这个URL匹配哪个controller中的哪个方法。哪个Controller就需要<context:component-scan/>注解，如何匹配，匹配哪个方法就需要<mvc:annotation-driven/>注解。
      -->
     <mvc:annotation-driven/>
-
-<!--    <mvc:interceptors>-->
-<!--        <bean class="com.mmall.common.HttpInterceptor" />-->
-<!--    </mvc:interceptors>-->
+    <!--  请求前后的拦截器  -->
+    <mvc:interceptors>
+        <bean class="com.mmall.common.HttpInterceptor" />
+    </mvc:interceptors>
 
     <!-- 启动包扫描功能, 只扫描Controller和service -->
     <context:component-scan base-package="com.mmall.controller" />
     <!-- 放到applicationContext.xml里了 -->
     <context:component-scan base-package="com.mmall.service" />
-
+    <!--获取applicationContext的bean, 不能懒加载-->
+    <bean class="com.mmall.common.ApplicationContextHelper" lazy-init="false"/>
 <!--    <mvc:resources location="/js/" mapping="/js/**"/>-->
 <!--    <mvc:resources location="/css/" mapping="/css/**"/>-->
 <!--    <mvc:resources location="/bootstrap3.3.5/" mapping="/bootstrap3.3.5/**"/>-->
@@ -38,8 +39,8 @@
     <!--通过request查找对应的HandlerMethod，即当前request具体是由Controller中的哪个方法进行处理；
         查找当前系统中的Interceptor，将其与HandlerMethod封装为一个HandlerExecutionChain。-->
 <!--    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping" />-->
-
-<!--    <bean class="com.mmall.common.SpringExceptionResolver" />-->
+<!--    全局异常-->
+    <bean class="com.mmall.common.SpringExceptionResolver" />
 <!--    返回数据的格式, jsp,json,pdf还是其他-->
     <bean class="org.springframework.web.servlet.view.BeanNameViewResolver" />
 <!--    针对json进行的配置-->
